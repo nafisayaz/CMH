@@ -41,7 +41,10 @@ The CMH processes configuration files (YAML/JSON) or interactive inputs and prov
 
 ---
 
+
 ## 📁 Example Configuration File
+
+### 🔹 YAML Format
 
 ```yaml
 project:
@@ -67,3 +70,80 @@ toolchain:
   cmake_minimum_required: "3.21"
   conan_profile: default
   build_type: Release
+
+directories:
+  - name: third-party
+    sub-directories: []
+  - name: modules
+    sub-directories:
+      - name: module1
+        sub-directories: []
+      - name: module2
+        sub-directories: []
+  - name: include
+    sub-directories: []
+  - name: build
+    sub-directories: []
+
+
+
+
+## 📁 Example Configuration (JSON)
+
+```json
+{
+  "project": {
+    "name": "MyAwesomeApp",
+    "version": "2.1.0"
+  },
+  "compiler": {
+    "type": "clang",
+    "version": 14,
+    "flags": ["-Wall", "-O2"]
+  },
+  "dependencies": [
+    {
+      "name": "boost",
+      "version": "1.80.0",
+      "options": {
+        "shared": true
+      }
+    },
+    {
+      "name": "fmt",
+      "version": "10.1.0"
+    }
+  ],
+  "toolchain": {
+    "cmake_minimum_required": "3.21",
+    "conan_profile": "default",
+    "build_type": "Release"
+  },
+  "directories": [
+    {
+      "name": "third-party",
+      "sub-directories": []
+    },
+    {
+      "name": "modules",
+      "sub-directories": [
+        {
+          "name": "module1",
+          "sub-directories": []
+        },
+        {
+          "name": "module2",
+          "sub-directories": []
+        }
+      ]
+    },
+    {
+      "name": "include",
+      "sub-directories": []
+    },
+    {
+      "name": "build",
+      "sub-directories": []
+    }
+  ]
+}
