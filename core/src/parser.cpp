@@ -37,7 +37,8 @@ const CMH::ParsedData& CMH::JsonxParser::get()const{
 void CMH::JsonxParser::retrieve(){
 #ifdef CMH_JSON
     if (m_data.m_json.contains("project")) {
-        std::cout << "Project: " << m_data.m_json["project"] << "\n";
+        std::cout << "Project: " << m_data.m_json["project"]["name"]<< "\n";
+        std::cout << "version: " << m_data.m_json["project"]["version"]<< "\n";
     }
 
     if (m_data.m_json.contains("directories")) {
@@ -56,5 +57,68 @@ void CMH::print(const json& directories, int indent) {
     }
 }
 
+void CMH::JsonxParser::createFile(const fs::path& filepath) {
+    std::ofstream ofs(filepath);
+    if (ofs) {
+        std::cout << "Created file: " << filepath << std::endl;
+    } else {
+        std::cerr << "Failed to create file: " << filepath << std::endl;
+    }
+}
 
+void CMH::JsonxParser::createDir(){
+
+    std::string project_name = m_data.m_json["project"]["name"];
+    std::string project_language = m_data.m_json["project"]["language"];
+
+    fs::path baseDir = fs::current_path() / project_name;
+
+    if (!fs::exists(baseDir)) {
+        fs::create_directory(baseDir);
+        std::cout << "Created project directory: " << baseDir << std::endl;
+    }
+
+    for (const auto& file : m_data.m_json["project"]["filename"]) {
+        createFile(baseDir / (file.get<std::string>() + ".cpp"));
+    }
+
+    createDirectories(m_data.m_json["directories"], baseDir);
+}
+
+void CMH::JsonxParser::createDir(std::string project_name){
+
+    fs::path baseDir = fs::current_path() / project_name;
+
+    if (!fs::exists(baseDir)) {
+        fs::create_directory(baseDir);
+        std::cout << "Created project directory: " << baseDir << std::endl;
+    }
+
+    for (const auto& file : m_data.m_json["project"]["filename"]) {
+        createFile(baseDir / (file.get<std::string>() + ".cpp"));
+    }
+
+    createDirectories(m_data.m_json["directories"], baseDir);
+}
+
+void CMH::JsonxParser::createDirectories(const json& dirs, const fs::path& basePath){
+
+    for (const auto& dir : dirs) {
+        fs::path dirPath = basePath / dir["name"].get<std::string>();
+        if (!fs::exists(dirPath)) {
+            fs::create_directory(dirPath);
+            std::cout << "Created directory: " << dirPath << std::endl;
+        }
+
+        for (const auto& file : dir["filename"]) {
+            std::string ext = (dir["name"].get<std::string>() == "include") ? ".hpp" : ".cpp";
+            createFile(dirPath / (file.get<std::string>() + ext));
+        }
+
+        if (dir.contains("sub-directories")) {
+            createDirectories(dir["sub-directories"], dirPath);
+        }
+    }
+
+}
 

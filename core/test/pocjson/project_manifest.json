@@ -1,31 +1,23 @@
 {
-    "project": "MinimalProject",
+    "project": {
+    "name": "AwesomeApp",
+    "version": "2.1.0",
+    "language": "C++",
+    "filename": ["main"]
+
+  },
     "directories": [
       {
-        "name": "third-party",
-        "sub-directories": []
-      },
-      {
-        "name": "modules",
-        "sub-directories": [
-          {
-            "name": "module1",
-            "sub-directories": []
-          },
-          {
-            "name": "module2",
-            "sub-directories": []
-          }
-        ]
-      },
-      {
         "name": "include",
+        "filename": ["greet"],
         "sub-directories": []
       },
       {
-        "name": "build",
+        "name": "src",
+        "filename": ["greet"],
         "sub-directories": []
       }
+      
     ]
   }
   

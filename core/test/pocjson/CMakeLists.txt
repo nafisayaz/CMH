@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.5...3.30)
 project(pocjson VERSION 1.0.0 LANGUAGES CXX)
 
 add_executable(${PROJECT_NAME}
-    ParserTest.cpp
+    cmhTest.cpp
 )
 
 target_include_directories(${PROJECT_NAME} PRIVATE
@@ -21,6 +21,7 @@ target_link_libraries(${PROJECT_NAME} PRIVATE
     GTest::GTest 
     GTest::Main
     cmh
+    stdc++fs
 )
 
 
