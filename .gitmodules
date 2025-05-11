@@ -6,4 +6,4 @@
 	url = https://github.com/zeux/pugixml.git
 [submodule "core/third-party/xerces"]
 	path = core/third-party/xerces
-	url = https://github.com/apache/xerces-c.git
+	url = https://github.com/AaronNGray/xerces.git
