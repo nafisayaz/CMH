@@ -84,12 +84,13 @@ directories:
     sub-directories: []
   - name: build
     sub-directories: []
-
+    
+```
 
 
 
 ## 📁 Example Configuration (JSON)
-
+### 🔹 JSON Format
 ```json
 {
   "project": {
