@@ -1,0 +1,9 @@
+[submodule "core/third-party/nlohmann/json"]
+	path = core/third-party/nlohmann/json
+	url = https://github.com/nlohmann/json.git
+[submodule "core/third-party/pugixml"]
+	path = core/third-party/pugixml
+	url = https://github.com/zeux/pugixml.git
+[submodule "core/third-party/xerces"]
+	path = core/third-party/xerces
+	url = https://github.com/apache/xerces-c.git
