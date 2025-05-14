@@ -1,0 +1,13 @@
+{
+  "project": {
+    "name": "AwesomeApp",
+    "version": "2.1.0",
+    "language": "C++",
+    "compiler": ["gcc"],
+    "buildPath": ".",
+    "buildType": "Debug"
+
+  }
+  
+}
+  

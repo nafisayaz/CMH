@@ -1,0 +1,21 @@
+project:
+  name: MyApp
+  version: 1.0.0
+
+compiler:
+  type: gcc
+  version: 11
+  flags:
+    - -Wall
+    - -O2
+
+dependencies:
+  - name: boost
+    version: "1.80.0"
+    options:
+      shared: true
+
+toolchain:
+  cmake_minimum_required: "3.18"
+  conan_profile: default
+  build_type: Release

@@ -1,3 +1,4 @@
+#pragma once
 
 #include <fstream>
 #include <iostream>
@@ -13,8 +14,8 @@
 #ifdef CMH_JSON
     #include <nlohmann/json.hpp>
     using json = nlohmann::json;
-
 #endif
+
 namespace fs = std::experimental::filesystem;
 
 namespace CMH{

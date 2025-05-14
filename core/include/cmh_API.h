@@ -1,35 +1,42 @@
+// cmh_API.h
 #pragma once
 
-#define CMH_JSON
-
-#ifdef _WIN32  // Windows OS
+#if defined(_WIN32) || defined(_WIN64)
     #ifdef CMH_DLL
-        #define CMH_API __declspec(dllexport)  // Export symbols when building the DLL
-        #define CMH_DATA extern __declspec(dllexport)
+        #ifdef CMH_EXPORT
+            // Building the DLL
+            #define CMH_API __declspec(dllexport)
+            #define CMH_DATA extern __declspec(dllexport)
+        #else
+            // Using the DLL
+            #define CMH_API __declspec(dllimport)
+            #define CMH_DATA extern __declspec(dllimport)
+        #endif
     #else
-        #define CMH_API __declspec(dllimport)  // Import symbols when using the DLL
-        #define CMH_DATA extern __declspec(dllimport)
+        // Static linking on Windows
+        #define CMH_API
+        #define CMH_DATA extern
     #endif
-#elif defined(__GNUC__) && defined(NATIVE_OS_MAC)  // macOS with GCC/Clang
+
+#elif defined(__GNUC__)
     #ifdef CMH_DLL
-        #define CMH_API __attribute__((visibility("default")))
-        #define CMH_DATA extern __attribute__((visibility("default")))
+        #ifdef CMH_EXPORT
+            // Building the shared library
+            #define CMH_API __attribute__((visibility("default")))
+            #define CMH_DATA extern __attribute__((visibility("default")))
+        #else
+            // Using the shared library
+            #define CMH_API
+            #define CMH_DATA extern
+        #endif
     #else
-        #define CMH_API 
-        #define CMH_DATA
+        // Static linking
+        #define CMH_API
+        #define CMH_DATA extern
     #endif
-#else  // Other platforms (Linux, generic UNIX)
-    #ifdef CMH_JSON
-        #undef CMH_XML
-        #define CMH_API 
-        #define CMH_DATA
 
-    #elif CMH_XML
-        #undef CMH_JSON
-        #define CMH_API 
-        #define CMH_DATA
-    #endif
-        #define CMH_API 
-        #define CMH_DATA
-
+#else
+    // Fallback for unknown compilers/platforms
+    #define CMH_API
+    #define CMH_DATA extern
 #endif

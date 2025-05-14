@@ -1,0 +1,37 @@
+
+//  file: project_manifest.json or project_topology.json
+{
+  "project": {
+  "name": "AwesomeApp",
+  "version": "2.1.0"
+},
+  "directories": [
+    {
+      "name": "third-party",
+      "sub-directories": []
+    },
+    {
+      "name": "modules",
+      "sub-directories": [
+        {
+          "name": "module1",
+          "sub-directories": []
+        },
+        {
+          "name": "module2",
+          "sub-directories": []
+        }
+      ]
+    },
+    {
+      "name": "include",
+      "sub-directories": []
+    },
+    {
+      "name": "build",
+      "sub-directories": []
+    }
+  ]
+}
+
+  

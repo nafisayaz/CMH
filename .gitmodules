@@ -7,3 +7,7 @@
 [submodule "core/third-party/xerces"]
 	path = core/third-party/xerces
 	url = https://github.com/AaronNGray/xerces.git
+
+[submodule "core/third-party/tomlplusplus"]
+	path = core/third-party/tomlplusplus
+	url = https://github.com/marzer/tomlplusplus.git
