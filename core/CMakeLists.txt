@@ -10,9 +10,12 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(BUILD_SHARED_LIBS ON)
 
 add_library(${PROJECT_NAME}
-    ./src/jsonParser.cpp
-    ./src/tomlParser.cpp
-    ./src/systemConfig.cpp
+    ./src/Parser.cpp
+    ./src/ProjectBuilder.cpp
+    ./src/ProjectWriterHandler.cpp
+
+    # ./src/tomlParser.cpp
+    # ./src/systemConfig.cpp
 )
 
 include_directories(

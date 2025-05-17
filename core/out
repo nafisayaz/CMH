@@ -1,0 +1,13 @@
+-- The CXX compiler identification is GNU 9.4.0
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Configuring done (0.2s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/ayaz/Projects/Generative-Build-System/CMH/CMH/build
+[ 25%] Building CXX object CMakeFiles/cmh.dir/src/Parser.cpp.o
+make[2]: *** [CMakeFiles/cmh.dir/build.make:76: CMakeFiles/cmh.dir/src/Parser.cpp.o] Interrupt
+make[1]: *** [CMakeFiles/Makefile2:83: CMakeFiles/cmh.dir/all] Interrupt
+make: *** [Makefile:91: all] Interrupt

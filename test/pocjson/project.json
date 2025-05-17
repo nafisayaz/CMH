@@ -1,0 +1,22 @@
+{
+    "project": {
+      "name": "SampleProject",
+      "version": "2.1.0",
+      "language": "C++",
+      "filename": ["main"],
+      "directories": [
+        {
+          "name": "include",
+          "filename": ["greet"],
+          "sub-directories": []
+        },
+        {
+          "name": "src",
+          "filename": ["greet"],
+          "sub-directories": []
+        }
+      ]
+    }
+  
+}
+  

@@ -11,6 +11,7 @@
 #endif
 
 #ifdef CMH_JSON
+    #include "Parser.h"
     #include "jsonParser.h"
 #endif
 
