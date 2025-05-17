@@ -5,7 +5,7 @@
 #include "ProjectBuilder.h"
 
 int main() {
-    const std::string filePath = "../project.json";
+    const std::string filePath = "../project_manifest.json";
 
     std::unique_ptr<cmh::IParser> parser = std::make_unique<cmh::JsonProjectManifestParser>(filePath);
 
