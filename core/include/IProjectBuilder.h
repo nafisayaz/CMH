@@ -13,6 +13,7 @@ namespace cmh
 {
     class IProjectBuilder {
     public:
+        IProjectBuilder() = default;
         virtual ~IProjectBuilder() = default;
         virtual bool create() = 0;
     private:

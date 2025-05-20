@@ -7,7 +7,40 @@
 -- Configuring done (0.2s)
 -- Generating done (0.0s)
 -- Build files have been written to: /home/ayaz/Projects/Generative-Build-System/CMH/CMH/build
-[ 25%] Building CXX object CMakeFiles/cmh.dir/src/Parser.cpp.o
-make[2]: *** [CMakeFiles/cmh.dir/build.make:76: CMakeFiles/cmh.dir/src/Parser.cpp.o] Interrupt
-make[1]: *** [CMakeFiles/Makefile2:83: CMakeFiles/cmh.dir/all] Interrupt
-make: *** [Makefile:91: all] Interrupt
+[ 50%] Building CXX object CMakeFiles/cmh.dir/src/ymlConfigParser.cpp.o
+/home/ayaz/Projects/Generative-Build-System/CMH/CMH/core/src/ymlConfigParser.cpp: In member function ‘virtual bool cmh::YMLConfigParser::parse()’:
+/home/ayaz/Projects/Generative-Build-System/CMH/CMH/core/src/ymlConfigParser.cpp:34:33: error: ‘struct Config::Compiler’ has no member named ‘path’
+   34 |             m_config.m_compiler.path = compilerNode["path"].val().str;
+      |                                 ^~~~
+/home/ayaz/Projects/Generative-Build-System/CMH/CMH/core/src/ymlConfigParser.cpp:42:21: error: ‘struct Config::Dependency’ has no member named ‘source’
+   42 |                 dep.source = depNode["source"].val().str;
+      |                     ^~~~~~
+/home/ayaz/Projects/Generative-Build-System/CMH/CMH/core/src/ymlConfigParser.cpp:43:26: error: ‘struct Config’ has no member named ‘dependencies’; did you mean ‘m_dependencies’?
+   43 |                 m_config.dependencies.push_back(dep);
+      |                          ^~~~~~~~~~~~
+      |                          m_dependencies
+/home/ayaz/Projects/Generative-Build-System/CMH/CMH/core/src/ymlConfigParser.cpp:52:20: error: ‘struct Config::Toolchain’ has no member named ‘target’
+   52 |                 tc.target = toolNode["target"].val().str;
+      |                    ^~~~~~
+/home/ayaz/Projects/Generative-Build-System/CMH/CMH/core/src/ymlConfigParser.cpp:53:26: error: ‘struct Config’ has no member named ‘toolchains’; did you mean ‘m_toolchains’?
+   53 |                 m_config.toolchains.push_back(tc);
+      |                          ^~~~~~~~~~
+      |                          m_toolchains
+/home/ayaz/Projects/Generative-Build-System/CMH/CMH/core/src/ymlConfigParser.cpp: In member function ‘virtual const Config::Compiler& cmh::YMLConfigParser::getCompiler() const’:
+/home/ayaz/Projects/Generative-Build-System/CMH/CMH/core/src/ymlConfigParser.cpp:71:21: error: ‘const struct Config’ has no member named ‘compiler’; did you mean ‘Compiler’?
+   71 |     return m_config.compiler;
+      |                     ^~~~~~~~
+      |                     Compiler
+/home/ayaz/Projects/Generative-Build-System/CMH/CMH/core/src/ymlConfigParser.cpp: In member function ‘virtual const std::vector<Config::Dependency>& cmh::YMLConfigParser::getDependencies() const’:
+/home/ayaz/Projects/Generative-Build-System/CMH/CMH/core/src/ymlConfigParser.cpp:75:21: error: ‘const struct Config’ has no member named ‘dependencies’; did you mean ‘m_dependencies’?
+   75 |     return m_config.dependencies;
+      |                     ^~~~~~~~~~~~
+      |                     m_dependencies
+/home/ayaz/Projects/Generative-Build-System/CMH/CMH/core/src/ymlConfigParser.cpp: In member function ‘virtual const std::vector<Config::Toolchain>& cmh::YMLConfigParser::getToolchains() const’:
+/home/ayaz/Projects/Generative-Build-System/CMH/CMH/core/src/ymlConfigParser.cpp:79:21: error: ‘const struct Config’ has no member named ‘toolchains’; did you mean ‘m_toolchains’?
+   79 |     return m_config.toolchains;
+      |                     ^~~~~~~~~~
+      |                     m_toolchains
+make[2]: *** [CMakeFiles/cmh.dir/build.make:76: CMakeFiles/cmh.dir/src/ymlConfigParser.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:83: CMakeFiles/cmh.dir/all] Error 2
+make: *** [Makefile:91: all] Error 2

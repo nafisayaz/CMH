@@ -1,0 +1,24 @@
+compiler:
+  name: gcc
+  version: "11.2"
+  flags: ["-Wall", "-O2"]
+
+dependencies:
+  - name: boost
+    version: "1.75.0"
+    options:
+      header_only: true
+      multithreaded: false
+  - name: fmt
+    version: "8.0.1"
+    options:
+      header_only: true
+
+toolchain:
+  - build_generator: "Ninja"
+    cmake_minimum_required: "3.20"
+    build_type: "Release"
+  - pkg_manager: "vcpkg"
+    version: "2023.03"
+    host: "x64-windows"
+    build: "x64-linux"
