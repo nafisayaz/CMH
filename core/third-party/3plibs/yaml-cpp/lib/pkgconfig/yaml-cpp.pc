@@ -1,0 +1,11 @@
+prefix=/home/ayaz/Projects/Generative-Build-System/CMH/CMH/core/third-party/3plibs/yaml-cpp
+exec_prefix=${prefix}
+includedir=/home/ayaz/Projects/Generative-Build-System/CMH/CMH/core/third-party/3plibs/yaml-cpp/include
+libdir=/home/ayaz/Projects/Generative-Build-System/CMH/CMH/core/third-party/3plibs/yaml-cpp/lib
+
+Name: Yaml-cpp
+Description: A YAML parser and emitter for C++
+Version: 0.8.0
+Requires:
+Libs: -L${libdir} -lyaml-cpp
+Cflags: -I${includedir}

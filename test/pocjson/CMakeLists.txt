@@ -8,11 +8,11 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 add_executable(${PROJECT_NAME}
-    # cmhTest.cpp
+    cmhTest.cpp
     # config.cpp
     # ParserTest.cpp
     # MainTest.cpp
-    ParserImpl.cpp
+    # ParserImpl.cpp
 )
 
 target_include_directories(${PROJECT_NAME} PRIVATE

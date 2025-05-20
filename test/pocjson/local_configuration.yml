@@ -1,0 +1,22 @@
+compiler:
+  type: gcc
+  version: 11
+  flags:
+    - -Wall
+    - -O2
+
+dependencies:
+  - name: boost
+    version: "1.80.0"
+    options:
+      shared: true
+
+toolchain:
+  - build_generator: cmake
+    cmake_minimum_required: 3.18
+    build_type: Debug
+  - pkg_manager: conan
+    version: 2.6
+    host: default
+    build: default
+

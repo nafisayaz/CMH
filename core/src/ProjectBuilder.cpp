@@ -38,7 +38,6 @@ void cmh::ProjectBuilder::createDirectories(const std::vector<Project::Directory
 }
 
 void cmh::ProjectBuilder::handleDirectory(const Project::Directory& dir, const fs::path& basePath) {
-    std::cout << "Directory: " << dir.name << "\n";
 
     fs::path dirPath = basePath / dir.name;
     createDirectoryIfNotExists(dirPath);
@@ -61,11 +60,8 @@ void cmh::ProjectBuilder::createDirectoryIfNotExists(const fs::path& dirPath) {
 
 void cmh::ProjectBuilder::createFilesInDirectory(const std::string& dirName, const std::vector<std::string>& files, const fs::path& dirPath) {
     for (const auto& file : files) {
-        std::cout << "  File: " << file << "\n";
         fs::path filePath = generateFilePath(dirName, dirPath, file);
-
         if (createFile(filePath)) {
-            std::cout << "created==============>: " << filePath << "\n";
             std::unique_ptr<cmh::IProjectWriterHandler> writerHandler = std::make_unique<cmh::ProjectWriterHandler>();
             writerHandler->writeInFile(dirName, filePath, m_project.name);
         }

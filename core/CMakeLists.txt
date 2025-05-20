@@ -10,9 +10,13 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(BUILD_SHARED_LIBS ON)
 
 add_library(${PROJECT_NAME}
-    ./src/Parser.cpp
-    ./src/ProjectBuilder.cpp
-    ./src/ProjectWriterHandler.cpp
+
+    ./src/SupportParser.cpp
+    # ./src/YMLConfigParser.cpp
+
+    # ./src/Parser.cpp
+    # ./src/ProjectBuilder.cpp
+    # ./src/ProjectWriterHandler.cpp
 
     # ./src/tomlParser.cpp
     # ./src/systemConfig.cpp
@@ -23,6 +27,8 @@ include_directories(
     ${CMAKE_CURRENT_SOURCE_DIR}/include
     ${CMAKE_CURRENT_SOURCE_DIR}/third-party/3plibs/pugixml/include
     ${CMAKE_CURRENT_SOURCE_DIR}/third-party/3plibs/toml++/include
+    ${CMAKE_CURRENT_SOURCE_DIR}/third-party/3plibs/rapidyaml/include
+    ${CMAKE_CURRENT_SOURCE_DIR}/third-party/3plibs/yaml-cpp/include
 )
 
 target_include_directories(${PROJECT_NAME} PUBLIC
@@ -30,6 +36,8 @@ target_include_directories(${PROJECT_NAME} PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}/include
     ${CMAKE_CURRENT_SOURCE_DIR}/third-party/3plibs/pugixml/include
     ${CMAKE_CURRENT_SOURCE_DIR}/third-party/3plibs/toml++/include
+    ${CMAKE_CURRENT_SOURCE_DIR}/third-party/3plibs/rapidyaml/include
+    ${CMAKE_CURRENT_SOURCE_DIR}/third-party/3plibs/yaml-cpp/include
 )
 
 # target_include_directories(${PROJECT_NAME}
@@ -42,6 +50,8 @@ target_include_directories(${PROJECT_NAME} PUBLIC
 
 target_link_directories(${PROJECT_NAME} PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}/third-party/3plibs/pugixml/lib
+    ${CMAKE_CURRENT_SOURCE_DIR}/third-party/3plibs/rapidyaml/lib
+    ${CMAKE_CURRENT_SOURCE_DIR}/third-party/3plibs/yaml-cpp/lib
 )
 
 # target_link_directories(${PROJECT_NAME}
@@ -49,9 +59,12 @@ target_link_directories(${PROJECT_NAME} PUBLIC
 #         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/third-party/3plibs/pugixml/lib>
 # )
 
-
+set(CMAKE_PREFIX_PATH "${CMAKE_CURRENT_SOURCE_DIR}/third-party/3plibs/yaml-cpp/lib/cmake" ${CMAKE_PREFIX_PATH})
+find_package(yaml-cpp REQUIRED)
 target_link_libraries(${PROJECT_NAME} PUBLIC
     pugixml
+    ryml
+    yaml-cpp::yaml-cpp
 )
 
 target_compile_definitions( ${PROJECT_NAME} PUBLIC

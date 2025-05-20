@@ -16,6 +16,7 @@ dependencies:
       shared: true
 
 toolchain:
-  cmake_minimum_required: "3.18"
+  generator: cmake
+  cmake_minimum_required: 3.18
   conan_profile: default
   build_type: Release
